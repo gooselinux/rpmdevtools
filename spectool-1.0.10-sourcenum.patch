@@ -1,0 +1,17 @@
+Fix for -s x,y, -p x,y from Todd Zullinger:
+https://www.redhat.com/archives/fedora-devel-list/2009-August/msg00621.html
+
+diff -up spectool-1.0.10/spectool~ spectool-1.0.10/spectool
+--- spectool-1.0.10/spectool~	2008-02-12 12:32:21.000000000 +0200
++++ spectool-1.0.10/spectool	2009-08-21 02:12:56.000000000 +0300
+@@ -269,8 +269,8 @@ GetOptions ('h|help' => sub { $command =
+ 			'v|verbose' => sub { $verbose++; },
+ 			'n|dryrun|dry-run' => sub { $dryrun = 1; },
+ 			'V|version' => sub { $command = 'version'; },
+-			's|source=i' => \@sources,
+-			'p|patch=i' => \@patches,
++			's|source=s' => \@sources,
++			'p|patch=s' => \@patches,
+ 			'S|sources' => sub { push @what, 'sources'; },
+ 			'P|patches' => sub { push @what, 'patches'; },
+ 			'A|all' => sub { push @what, 'all'; },
